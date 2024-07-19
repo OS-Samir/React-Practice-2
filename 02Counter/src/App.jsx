@@ -10,13 +10,16 @@ function App() {
 
   const addValue = () => {
    
-    setCounter(c=>c+1);
+    setCounter(c=>(c < 20 ? c+1: c));
   };
 
   const desValue = () => {
-    setCounter(c=>c-1);
+    setCounter(c=>(c> 0 ? c-1: c));
   }
 
+
+
+  
   return (
     <>
       <h1>Samir React</h1>
