@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-import { jsx as _jsx } from "react/jsx-runtime.js";
+// import { jsx as _jsx } from "react/jsx-runtime.js";
 
 function MyApp() {
   return (
