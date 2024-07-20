@@ -14,7 +14,7 @@ function App() {
   };
 
   const desValue = () => {
-    setCounter(c=>(c> 0 ? c-1: c));
+    setCounter(c=>(c > 0 ? c-1: c));
   }
 
 
