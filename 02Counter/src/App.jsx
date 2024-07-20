@@ -2,19 +2,27 @@ import reactLogo from "./assets/react.svg";
 import {useState} from "react";
 
 import "./App.css";
-import { set } from "mongoose";
+
 
 function App() {
 
-  const [counter, setCounter] = useState(0);
+  const [counter, setCounter] = useState(15);
 
   const addValue = () => {
    
-    setCounter(c=>(c < 20 ? c+1: c));
+    // setCounter(c=>(c < 20 ? c+1: c));
+   
+    setCounter(prevcounter => prevcounter + 1 )
+    setCounter(prevcounter => prevcounter + 1 )
+    setCounter(prevcounter => prevcounter + 1 )
+    setCounter(prevcounter => prevcounter + 1 )
+
+
   };
 
   const desValue = () => {
-    setCounter(c=>(c > 0 ? c-1: c));
+    // setCounter(c=>(c > 0 ? c-1: c));
+    setCounter(counter - 1)
   }
 
 
