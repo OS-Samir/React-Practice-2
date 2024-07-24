@@ -53,4 +53,4 @@ function InputBox({
   );
 }
 
-export default InputBox;
+export {InputBox};
