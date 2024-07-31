@@ -8,7 +8,8 @@ export class AuthService {
     constructor() {
         this.client
             .setEndpoint(conf.appwriteUrl)
-            .setProject(conf.projectId)
+            .setProject(conf.appwriteProjectid);
+            this.account = new Account(this.client);
     }
 }
 
@@ -16,4 +17,3 @@ const authservice = new AuthService();
 
 export default authservice;
 
-// console.log("hello world!");
