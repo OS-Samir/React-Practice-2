@@ -13,6 +13,6 @@ const PostCard = ({$id, title, featuredImage}) => {
   )
 }
 
-
+// console.log()
 
 export default PostCard;
