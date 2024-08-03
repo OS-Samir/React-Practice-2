@@ -7,6 +7,14 @@ import authService from '../appwrite/auth'
 import {useForm} from "react-hook-form"
 
 const Login = () => {
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const {register, setLoading} = useForm()
+  const {error, setError} = useState("")
+
+  const login = async (data) => {
+    setError("")
+  }
   return (
     <div>
      
