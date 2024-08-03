@@ -17,15 +17,22 @@ const Login = () => {
   
   try {
     const session = await authService.login(data)
+    if (session) {
+      const userData = await authService.getCurrentUser()
+      if (userData) dispatch(authLogin(userData))
+      navigate("/")
+    }
   }
-  catch (err) {
+  catch (error) {
     setError(error.message)
   }
 }
   return (
-    <div>
-     
+   <div className='flex items-center justify-content w-full'>
+    <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
+      
     </div>
+   </div>
   )
 }
 
