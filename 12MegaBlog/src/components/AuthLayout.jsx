@@ -6,6 +6,11 @@ import { useNavigate } from 'react-router-dom'
 
     const navigate = useNavigate()
     const [loader, setLoader] = useState(true)
+    const authStatus = useSelector(state => state.authStatus)
+
+    useEffect(() => {
+
+    }, [authStatus, navigate, authentication])
   return (
     <div>
       
