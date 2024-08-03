@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom'
 
     useEffect(() => {
        //todo 
-        
+        // let authValue = authStatus === true ? true : false
         if(authentication && authStatus !== authentication){
             navigate("/login")
         } else if(!authentication && authStatus !== authentication) {
