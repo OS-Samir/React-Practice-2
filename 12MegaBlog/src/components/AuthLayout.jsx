@@ -9,7 +9,12 @@ import { useNavigate } from 'react-router-dom'
     const authStatus = useSelector(state => state.authStatus)
 
     useEffect(() => {
-
+        if(authentication && authStatus !== authentication){
+            navigate("/login")
+        } else if(!authentication && authStatus !== authentication) {
+            navigate("/login")
+        }
+        setLoader(false)
     }, [authStatus, navigate, authentication])
   return (
     <div>
