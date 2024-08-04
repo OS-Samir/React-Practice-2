@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react'
+import React, {useCallback, useEffect} from 'react'
 import {useForm} from 'react-hook-form'
 import {Button, Input, Select, RTE} from '../index'
 import appwriteService from "../../appwrite/config"
@@ -56,4 +56,22 @@ const PostForm = ({post}) => {
   )
   
 }
+
+const slugTransform = useCallback((value) => {
+    if (value && typeof value === 'string') {
+        return value.trim()
+        .toLowerCase()
+        .replace(/^[a-zA-Z\d\s]+/g, '-')
+        .replace(/\s/g, '-')
+
+        return ''
+    }
+}, [])
+
+React.useEffect(()=> {
+    
+}, [watch, slugTransform, setValue])
+return (
+    <div>PostForm</div>
+)
 export default PostForm
