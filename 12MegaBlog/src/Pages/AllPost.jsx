@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import appwriteService from "../appwrite/config"
 import {Container, Postcard} from '../components/index'
-import appwriteService from '../appwrite/config'
+
 import { set } from 'mongoose'
 const AllPost = () => {
     const [posts, setPosts] = useState([])
