@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import appwriteService from "../appwrite/config"
-import {Container, Postcard} from '../components/index'
+import {container, PostCard} from '../components/index'
 
 import { set } from 'mongoose'
 const AllPost = () => {
@@ -13,18 +13,18 @@ const AllPost = () => {
     })
   return (
     <div className='w-full py-8'>
-      <Container>
+      <container>
         {/* {posts.map((post) => (
             <Postcard key = {post.$id} post={post} />
         ))} */}
 
         <div className='flex flex-wrap'>{posts.map((post) => (
                 <div key={post.$id} className='p-2 w-1/4'>
-                    <Postcard post={post} />
+                    <PostCard post={post} />
                 </div>
         ))}
         </div>
-      </Container>
+      </container>
     </div>
   )
 }
