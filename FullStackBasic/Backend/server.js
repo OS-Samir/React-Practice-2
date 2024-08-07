@@ -2,35 +2,45 @@ import express from 'express';
 
 const app = express();
 
-app.get('jokes', (req, res) => {
+// app.get('/', (req, res) => {
+//     res.send('Server is ready')
+// })
+// get a list of 5 jokes
+app.get('/jokes', (req, res) => {
     const jokes = [
         {
             id: 1,
-            title: 'First Joke'
+            title: 'First Joke',
+            content: 'This is first joke'
         },
         {
             id: 2,
-            title: 'A second joke'
+            title: 'A second joke',
+            content: 'This is second joke'
+
         },
         {
             id: 3,
-            title: 'This is a third joke'
+            title: 'A third joke',
+            content: 'This is third  joke'
         },
         {
             id: 4,
-            title: 'This is a fourth joke'
+            title: 'A fourth joke',
+            content: 'This is fourth joke'
+
         },
         {
             id: 5,
-            title: 'This is a fifth joke'
+            title: 'A fifth joke',
+            content: 'This is fifth joke'
         }
-    ]
+    ];
+    res.send(jokes);
 });
-
-// get a list of 5 jokes
 
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
-    console.log(`Serve at http://localhost:${port}`);
+    console.log(`Server is running at http://localhost:${port}`);
 })
