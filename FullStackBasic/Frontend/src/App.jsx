@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 const App = () => {
   const [jokes, setJokes] = useState([])
@@ -7,8 +7,11 @@ const App = () => {
       <h1>Full stack</h1>
       <p>Jokes:{jokes.length}</p>
       {
-        jokes.map(()=> {
-          
+        jokes.map((joke, index)=> {
+            <div key={joke.id}>
+              <h3>{joke.title}</h3>
+              <p>{joke.content}</p>
+            </div>
         })
       }
     </div>
