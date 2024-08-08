@@ -13,7 +13,7 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState('');
   useEffect (() => {
-    const controller = new AbortController();
+    const controller = new AbortController()
       ;(async () => {
        try {
         setLoading(true);
@@ -36,9 +36,9 @@ const App = () => {
       })()
 
       //clean up code
-      return() => {}
-
-
+      return() => {
+        controller.abort()
+      }
   },[search]);
 
     // if (error) {
@@ -52,7 +52,7 @@ const App = () => {
   return (
     <>
       <h1>API handling</h1>
-      <input type="text" placeholder='Search'
+      <input type="text" placeholder="Search"
       value={search}
       onChange={(e) => setSearch(e.target.value)}
       />
