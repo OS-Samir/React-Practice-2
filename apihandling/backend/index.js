@@ -2,7 +2,7 @@ import express from "express";
 
 const app = express();
 
-app.get('api/products', (req, res) => {
+app.get('/api/products', (req, res) => {
     const products = [
         {
             id: 1, 
@@ -32,14 +32,24 @@ app.get('api/products', (req, res) => {
         {
             id: 5,
             name: 'table polyester',
+            price: 600,
             image: 'https://images.pexels.com/photos/25294262/pexels-photo-25294262/free-photo-of-view-of-glassware-and-flower-arrangements-on-the-table-in-a-palace.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
         }
     ]
+
+    if (req.query.search) {
+    const filterProducts = products.filter(product => product.name.includes(req.query.search))
+    res.send(filterProducts);
+    return;
+    }
+
     setTimeout(() => {
         res.send(products)
     }, 3000)
 
 })
+
+
 const port = process.env.PORT || 3000;
 
 app.listen(port, ()=> {
