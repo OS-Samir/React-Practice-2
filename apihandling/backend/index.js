@@ -43,7 +43,7 @@ app.get('/api/products', (req, res) => {
     return;
     }
 
-    setTimeout(() => {
+    setTeout(() => {
         res.send(products)
     }, 3000)
 
