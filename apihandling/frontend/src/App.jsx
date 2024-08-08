@@ -6,12 +6,16 @@ import axios from 'axios'
 
 const App = () => {
   const [products, setProducts] = useState([])
-
+  const [error, setError] = useState(false);
   useEffect (() => {
       ;(async () => {
-        const response = await axios.get('api/products')
-        console.log(response.data);
-        setProducts(response.data)
+       try {
+         const response = await axios.get('api/products')
+         console.log(response.data);
+         setProducts(response.data)
+       } catch (error) {
+          setError(true)
+       }
       })()
 
   },[]);
