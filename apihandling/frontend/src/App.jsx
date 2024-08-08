@@ -5,20 +5,16 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
 const App = () => {
-  const [products, setProducts] = useState([])
-  const [error, setError] = useState(false);
-  useEffect (() => {
-      ;(async () => {
-       try {
-         const response = await axios.get('api/products')
-         console.log(response.data);
-         setProducts(response.data)
-       } catch (error) {
-          setError(true)
-       }
-      })()
 
-  },[]);
+const [products, error, laoding] = customReactQuery('api/products')
+    if (error) {
+      return <h1>Something went wrong</h1>
+    }
+
+    if (loading) {
+      return <h1>Data is loading...</h1>
+    }
+
   return (
     <div>
       <h1>API handling</h1>
@@ -28,3 +24,31 @@ const App = () => {
 }
 
 export default App
+
+const customReactQuery = (urlPath) => {
+  const [products, setProducts] = useState([])
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
+  useEffect (() => {
+      ;(async () => {
+       try {
+        setLoading(true);
+        setError(false);
+         const response = await axios.get(urlPath)
+         console.log(response.data);
+         setProducts(response.data)
+         setLoading(false);
+       } catch (error) {
+          setError(true)
+          setLoading(false)
+       }
+      })()
+
+  },[]);
+
+  return [
+    products,
+    error,
+    loading
+  ]
+}
