@@ -18,7 +18,7 @@ const App = () => {
        try {
         setLoading(true);
         setError(false);
-         const response = await axios.get('/api/products?search =' + search, {
+         const response = await axios.get('/api/products?search=' + search, {
           signal: controller.signal
          })
          console.log(response.data);
