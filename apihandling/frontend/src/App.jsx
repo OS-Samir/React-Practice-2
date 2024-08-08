@@ -24,11 +24,20 @@ const App = () => {
          console.log(response.data);
          setProducts(response.data)
          setLoading(false);
-       } catch (error) {
+       } catch(error) {
+       
+       if(axios.isCancel(error)) {
+          log('Request canceled', error.message)
+          return
+       }
           setError(true)
           setLoading(false)
        }
       })()
+
+      //clean up code
+      return() => {}
+
 
   },[search]);
 
